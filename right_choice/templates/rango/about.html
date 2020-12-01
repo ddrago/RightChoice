@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <title>Right Choice</title>
+</head>
+<body>
+    <h1>Rightchoice website</h1>
+    <div>
+        Get your university information here! <br />
+        <strong>{{ boldmessage }}</strong><br />
+    </div>
+    <div>
+        <a href="/rightchoice/">HomePage</a><br />
+        <img src="{% static 'images/Uni.jpg' %}"
+             alt="Picture of Glasgow Uni" /> <!-- New line -->
+    </div>
+</body>
+</html>
