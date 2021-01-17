@@ -1,4 +1,14 @@
-#header {
+.bg-custom {
     background-color: rgba(18, 3, 62, 1);
+    color: rgba(246, 243, 255, 1);
+}
+
+.footer-colour {
+    background-color: rgba(5, 0, 17, 1);
+    color: rgba(246, 243, 255, 1);
+}
+
+.page-background {
+    background: linear-gradient(180deg, #12033E 0%, #050011 100%);
     color: rgba(246, 243, 255, 1);
 }
