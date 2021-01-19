@@ -99,7 +99,7 @@ class Career(models.Model):
 class SchoolSubjects(models.Model):
     name = models.CharField(max_length=128)
     level = models.CharField(max_length=128)
-    career_name = models.ForeignKey(Career, on_delete=models.CASCADE)
+    career_name = models.ManyToManyField(Career, related_name="sub_career")
     subjectArea = models.CharField(max_length=128, default='Subject area')
     class Meta:
         unique_together = (("name","level"),)
