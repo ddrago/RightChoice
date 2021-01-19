@@ -5,13 +5,147 @@ Homepage
 {% endblock %}
 
 {% block body_block %}
-<h1>Rightchoice website</h1>
-<div>
-    Welcome to the right choice website! <br />
-    <strong>{{ boldmessage }}</strong><br />
-</div>
-<div>
-    <img src="{% static 'images/Uni.jpg' %}"
-         alt="Picture of Glasgow Uni" /> <!-- New line -->
-</div>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title></title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+<!--  <link href="assets/img/favicon.png" rel="icon">-->
+<!--  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome.min.css">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+{#      <a href="index.html" class="logo mr-auto">#}
+{#      	<img src="{% static 'images/Uni.jpg' %}"#}
+{#      		alt="" class="img-fluid"></a>#}
+
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Right Choice</h1>
+          <h2>Supporting pupils to make the right choices for the future</h2>
+          <div class="d-flex">
+            <a href="#" class="btn-get-started scrollto">Career Path</a>
+
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="static/images/hero-img.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+
+    <!-- =======  Section ======= -->
+    <section id="team" class="team ">
+      <div class="container">
+
+
+          <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+            <div class="input-group">
+              <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+              <div class="input-group-append">
+                <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="card member">
+              <img  src="static/images/Placeholder.png" alt="" >
+              <h4 class="mb-3">University</h4>
+               <a href="#" class="btn btn-outline-secondary">Button</a>
+              <div class="social">
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="card member">
+              <img src="static/images/Placeholder.png" alt="">
+              <h4 class="mb-3">College</h4>
+              <a href="#" class="btn btn-outline-secondary">Button</a>
+
+
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="card member">
+              <img src="static/images/Placeholder.png" alt="">
+              <h4 class="mb-3">Apprenticeships</h4>
+              <a href="#" class="btn btn-outline-secondary">Button</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!--  Section -->
+
+
+  </main><!-- End #main -->
+
+  <!-- Vendor JS Files -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="vendor/php-email-form/validate.js"></script>
+  <script src="vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="vendor/counterup/counterup.min.js"></script>
+  <script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="vendor/venobox/venobox.min.js"></script>
+  <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="vendor/main.js"></script>
+
+</body>
+
+</html>
+
+
 {% endblock %}
