@@ -8,13 +8,13 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, default='Joe Bloggs')
     email = models.CharField(max_length=128, default='joebloggs@gmail.com')
-    profilePicture = models.ImageField(upload_to='profile_images', blank=True, editable=True)  
+    profilePicture = models.ImageField(upload_to='profile_images', blank=True, editable=True)
     savedPages = models.CharField(max_length=100, default='Page')
 
-    def __str__(self): 
+    def __str__(self):
         return self.user.username
 
-class University(models.Model): 
+class University(models.Model):
     name = models.CharField(primary_key=True, unique=True, max_length=128)
     location = models.CharField(max_length=128, default='Place')
     details = models.CharField(max_length=248, default='Description')
@@ -29,10 +29,10 @@ class University(models.Model):
         self.slug = slugify(self.name)
         super(University, self).save(*args, **kwargs)
 
-    def __str__(self): 
+    def __str__(self):
         return self.name
 
-class College(models.Model): 
+class College(models.Model):
     name = models.CharField(primary_key=True, unique=True, max_length=128)
     location = models.CharField(max_length=128, default='Place')
     details = models.CharField(max_length=248, default='Description')
@@ -47,10 +47,28 @@ class College(models.Model):
         self.slug = slugify(self.name)
         super(College, self).save(*args, **kwargs)
 
-    def __str__(self): 
+    def __str__(self):
         return self.name
 
-class Apprenticeship(models.Model): 
+class Company(models.Model):
+    name = models.CharField(primary_key=True, unique=True, max_length=128)
+    location = models.CharField(max_length=128, default='Place')
+    details = models.CharField(max_length=248, default='Description')
+    companyImage = models.ImageField(upload_to= 'college_images/',default='college.jpg')
+    slug = models.SlugField(unique=True, default=uuid.uuid1)
+    linkToCompanyWebsite = models.URLField(default='Link')
+
+    class Meta:
+        verbose_name_plural = 'Companies'
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Company, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+class Apprenticeship(models.Model):
     name = models.CharField(primary_key=True, unique=True, max_length=128)
     location = models.CharField(max_length=128, default='Place')
     details = models.CharField(max_length=248, default='Description')
@@ -65,7 +83,7 @@ class Apprenticeship(models.Model):
         self.slug = slugify(self.name)
         super(Apprenticeship, self).save(*args, **kwargs)
 
-    def __str__(self): 
+    def __str__(self):
         return self.name
 
 class Career(models.Model):
@@ -75,7 +93,7 @@ class Career(models.Model):
     class Meta:
         verbose_name_plural = 'Career'
 
-    def __str__(self): 
+    def __str__(self):
         return self.careerName
 
 class SchoolSubjects(models.Model):
@@ -87,7 +105,7 @@ class SchoolSubjects(models.Model):
         unique_together = (("name","level"),)
         verbose_name_plural = 'SchoolSubjects'
 
-    def __str__(self): 
+    def __str__(self):
         return self.name
 
 class Course_Uni(models.Model):
@@ -104,11 +122,11 @@ class Course_Uni(models.Model):
         verbose_name_plural = 'Course_Uni'
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.courseID + self.universityName.name)
+        self.slug = slugify(str(self.courseID) + self.universityName.name)
         super(Course_Uni, self).save(*args, **kwargs)
 
-    def __str__(self): 
-        return self.courseID
+    def __str__(self):
+        return str(self.courseID)
 
 class Course_College(models.Model):
     courseID = models.IntegerField(primary_key=True, unique=True)
@@ -124,16 +142,16 @@ class Course_College(models.Model):
         verbose_name_plural = 'Course_College'
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.courseID + self.collegeName.name)
+        self.slug = slugify(str(self.courseID) + self.collegeName.name)
         super(Course_College, self).save(*args, **kwargs)
 
-    def __str__(self): 
-        return self.courseID
+    def __str__(self):
+        return str(self.courseID)
 
 class Course_Apprenticeship(models.Model):
     courseID = models.IntegerField(primary_key=True, unique=True)
     name = models.CharField(max_length = 128, default='Course')
-    companyName = models.ForeignKey(College, on_delete=models.CASCADE)
+    companyName = models.ForeignKey(Company, on_delete=models.CASCADE)
     careerName = models.ManyToManyField(Career, related_name="apprenticeship_course")
     #subReqName = models.ManyToManyField(SchoolSubjects, related_name="apprenticeship_course") most apprentieships dont have this
     gradesReq = models.CharField(max_length=100, default='Grades')
@@ -145,12 +163,8 @@ class Course_Apprenticeship(models.Model):
 
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.courseID + self.companyName.name)
+        self.slug = slugify(str(self.courseID) + self.companyName.name)
         super(Course_Apprenticeship, self).save(*args, **kwargs)
 
-    def __str__(self): 
-        return self.courseID
-
-
-
-
+    def __str__(self):
+        return str(self.courseID)
