@@ -5,11 +5,11 @@ body {
 }
 
 a {
-  color: #14c871;
+  color: #FFEC44;
 }
 
 a:hover {
-  color: #206bfb;
+  color: #FFC700;
   text-decoration: none;
 }
 
@@ -73,9 +73,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .get-started-btn:hover {
-  background: #206bfb;
+  background: #FFC700;
   color: #fff;
-  border-color: #206bfb;
+  border-color: #FFC700;
 }
 
 @media (max-width: 768px) {
@@ -120,13 +120,13 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 4px;
   transition: 0.5s;
   color: #fff;
-  background: #16df7e;
-  box-shadow: 0 8px 28px rgba(22, 223, 126, 0.45);
+  background: #FFEC44; 
+  box-shadow: 0 8px 28px rgba(255, 200, 20, 1);
 }
 
 #hero .btn-get-started:hover {
-  background: #206bfb;
-  box-shadow: 0 8px 28px rgba(32, 107, 251, 0.45);
+  background: #FFC700;
+  box-shadow: 0 8px 28px rgba(255, 153, 0, 1);
 }
 
 #hero .btn-watch-video {
