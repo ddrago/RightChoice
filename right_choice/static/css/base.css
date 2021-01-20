@@ -1,3 +1,8 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #F6F3FF;
+}
+
 #footer {
     position: absolute;
     bottom: 0;
@@ -6,10 +11,11 @@
 }
 
 #content-wrap {
+    min-height: 83vh;
     padding-bottom: 6rem;
 }
 
-.wrapper {
+#wrapper {
     min-height: 100vh;
     position:relative;
 }
