@@ -100,8 +100,8 @@ def populate():
     for c in Apprenticeship.objects.all():
         print(f'-{c}')
 
-    user = User(username='defaultUserName', email='default_user@gmail.com', password='defaultPassword123')
-    user.save()
+  #  user = User(username='defaultUserName', email='default_user@gmail.com', password='defaultPassword123')
+  #  user.save()
 
 
 
