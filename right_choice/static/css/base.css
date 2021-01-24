@@ -44,6 +44,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .page-background {
-    background: linear-gradient(180deg, #12033E 0%, #050011 100%);
+    background: linear-gradient(180deg, #12033E 0%, #F50011 100%);
     color: rgba(246, 243, 255, 1);
 }
