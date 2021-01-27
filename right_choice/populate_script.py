@@ -21,7 +21,7 @@ def populate():
     #school_subjects_business_higher = [{'name': 'Business Studies', 'level': 'Higher', 'career_name':finance_career, 'subjectArea': 'Business'}, {'name': 'Mathamatics', 'level': 'Higher', 'career_name':finance_career, 'subjectArea': 'Maths'}]
     for d in school_subjects_computing_higher:
         t = SchoolSubjects.objects.get_or_create(name=d["name"], level=d["level"], subjectArea=d["subjectArea"])[0]
-        t.career_name.filter(careerName=d["career_name"])
+        t.career_name.add(d["career_name"])
         t.save()
     for c in SchoolSubjects.objects.all():
         print(f'-{c}')
@@ -49,8 +49,8 @@ def populate():
                                     {'courseID': 2, 'name': 'Finance and Accounting HNC', 'collegeName': College.objects.get(name="City of Glasgow College"), 'career_name': Career.objects.get(areaStudy="Mathematician"), 'subReqName':SchoolSubjects.objects.get(name="Mathematics", level="Nat 5"), 'gradesReq': 'CC', 'subjectSuggestions':'Business, Maths and Economics'}]
     for d in courses_city_of_glasgow_college:
         t = Course_College.objects.get_or_create(courseID=d["courseID"], name=d["name"], collegeName=d["collegeName"], gradesReq=d["gradesReq"], subjectSuggestions=d["subjectSuggestions"])[0]
-        t.careerName.filter(careerName=d["career_name"])
-        t.subReqName.filter(name=d["subReqName"])
+        t.careerName.add(d["career_name"])
+        t.subReqName.add(d["subReqName"])
         t.save()
     for c in Course_College.objects.all():
         print(f'-{c}')
@@ -68,8 +68,8 @@ def populate():
                            {'courseID': 2, 'name': 'Finance and Accounting Bsc', 'universityName':University.objects.get(name="Glasgow University"), 'career_name': Career.objects.get(areaStudy="Mathematician"), 'subReqName':SchoolSubjects.objects.get(name="Mathematics", level="Higher"), 'gradesReq': 'AAAB', 'subjectSuggestions':'Business, Maths and Economics'}]
     for d in courses_glasgow_uni:
         t = Course_Uni.objects.get_or_create(courseID=d["courseID"], name=d["name"], universityName=d["universityName"], gradesReq=d["gradesReq"], subjectSuggestions=d["subjectSuggestions"])[0]
-        t.careerName.filter(careerName=d["career_name"])
-        t.subReqName.filter(name=d["subReqName"])
+        t.careerName.add(d["career_name"])
+        t.subReqName.add(d["subReqName"])
         t.save()
     for c in Course_Uni.objects.all():
         print(f'-{c}')
@@ -86,7 +86,7 @@ def populate():
     courses_apprenticeships_scotland = [{'courseID':1, 'name':'Accounting Apprenticeship', 'companyName': Company.objects.get(name='Apprenticeship Scotland'), 'careerName':Career.objects.get(areaStudy="Mathematician"), 'gradesReq': 'No qualifications required', 'subjectSuggestions':'Business, Maths and Economics'}]
     for d in courses_apprenticeships_scotland:
         t = Course_Apprenticeship.objects.get_or_create(courseID=d["courseID"], name=d["name"], companyName=d["companyName"], gradesReq=d["gradesReq"], subjectSuggestions=d["subjectSuggestions"])[0]
-        t.careerName.filter(careerName=d["careerName"])
+        t.careerName.add(d["careerName"])
         t.save()
     for c in Course_Apprenticeship.objects.all():
         print(f'-{c}')
