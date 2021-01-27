@@ -31,7 +31,7 @@ def populate():
     #school_subjects_business_nat5 = [{'name': 'Business Studies', 'level': 'Nat 5', 'career_name':finance_career, 'subjectArea': 'Business'}, {'name': 'Mathamatics', 'level': 'Higher', 'career_name':finance_career, 'subjectArea': 'Maths'}]
     for d in school_subjects_computing_nat5:
         t = SchoolSubjects.objects.get_or_create(name=d["name"],level=d["level"], subjectArea=d["subjectArea"])[0]
-        t.career_name.filter(careerName=d["career_name"])
+        t.career_name.add(d["career_name"])
         t.save()
     for c in SchoolSubjects.objects.all():
         print(f'-{c}')
