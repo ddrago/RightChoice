@@ -5,13 +5,44 @@ University Page
 {% endblock %}
 
 {% block body_block %}
-<h1>Rightchoice website</h1>
-<div>
-    Get your university information here! <br />
-    <strong>{{ boldmessage }}</strong><br />
+<head>
+    <link href="{% static 'css/university.css' %}" rel="stylesheet">
+</head>
+
+<div class="container">
+
+    <div class="row spacing-row"> </div> <!-- a row correspondant to the header-->
+
+    <div class="row welcome-row">
+        <div class="col welcome-text">
+            <div class="px-5 py-5">
+                <p style="font-size: 50px; line-height: 0.8;"> Universities</p>
+                <p style="font-size: 35px; color: #d9a4ff; line-height: 0.8">The best of the best. </p>
+            </div>
+        </div>
+        <div class="col-7 order-2 order-sm-1">
+            <img src="{% static 'images/zaba.jpg' %}" alt="placeholder" class="welcome-pic">
+        </div>
+    </div>
+
+    <div class="row spacing-row"> </div>
+
+    <div class="row">
+        <div id="content-wrap">
+            <div class="h-100 page-background bd-content py-5 px-5">		
+                <h1>Rightchoice website</h1>
+                <div> 
+                    Get your university information here! <br />
+                    <strong>{{ boldmessage }}</strong><br />
+                </div>
+                <div>
+                    <img src="{% static 'images/Uni.jpg' %}"
+                        alt="Picture of Glasgow Uni" /> <!-- New line -->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div>
-    <img src="{% static 'images/Uni.jpg' %}"
-         alt="Picture of Glasgow Uni" /> <!-- New line -->
-</div>
+
+
 {% endblock %}
