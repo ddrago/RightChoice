@@ -1,0 +1,30 @@
+﻿{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+Course Page
+{% endblock %}
+
+{% block body_block %}
+<br />
+<br />
+<h1>{{ course.name }}</h1>
+<div>
+    University - <br />
+    <strong>{{ course.collegeName.name }}</strong><br />
+
+    Grades Required - <br />
+    <strong>{{ course.gradesReq }}</strong><br />
+    Career - <br />
+
+    {% for name in course.careerName.all %}<strong>{{ name.careerName }}</strong><br />{% endfor %}
+
+    Required Subjects - <br />
+
+    {% for subject in course.subReqName.all %}<strong>{{ subject.name }} {{ subject.level }}</strong><br />{% endfor %}
+
+
+</div>
+<div>
+    <img src="{{ MEDIA_URL }}college_images/{{ course.collegeName.collegeImage }}" width="400" height="200" alt="Picture of College">
+</div>
+{% endblock %}
