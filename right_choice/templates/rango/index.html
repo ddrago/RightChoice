@@ -6,8 +6,8 @@ Homepage
 {% block body_block %}
 
 <head>
-<<<<<<< HEAD
-=======
+
+
  <meta charset="utf-8">
  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -15,10 +15,9 @@ Homepage
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
-<!--  <link href="assets/img/favicon.png" rel="icon">-->
-<!--  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
->>>>>>> 24cba04c9d2350d7fd5889104f036d4cf996af21
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -85,9 +84,9 @@ Homepage
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="card member">
-              <img  src="static/images/Placeholder.png" alt="" >
+              <img  src="media/uni_images/UniOfG.jpg" alt="" >
               <h4 class="mb-3" style =  "color: #0b2e13" >University</h4>
-               <a href="#" class="btn btn-outline-secondary">Button</a>
+               <a href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Search</a>
               <div class="social">
 
               </div>
@@ -96,9 +95,9 @@ Homepage
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="card member">
-              <img src="static/images/Placeholder.png" alt="">
+              <img src="static/images/College.jpg" alt="">
               <h4 class="mb-3" style =  "color: #0b2e13">College</h4>
-              <a href="#" class="btn btn-outline-secondary">Button</a>
+              <a href="{% url 'rango:college' %}" class="btn btn-outline-secondary">Search</a>
 
 
             </div>
@@ -106,9 +105,10 @@ Homepage
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="card member">
-              <img src="static/images/Placeholder.png" alt="">
+              <img src="static/images/apprentice.jpg" alt="">
               <h4 class="mb-3" style =  "color: #0b2e13">Apprenticeships</h4>
-              <a href="#" class="btn btn-outline-secondary">Button</a>
+              <a href="{% url 'rango:apprenticeship' %}" class="btn btn-outline-secondary" >Search</a>
+
             </div>
           </div>
 
