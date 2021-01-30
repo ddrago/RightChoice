@@ -1,0 +1,23 @@
+.welcome-row {
+    height: 85vh;
+}
+
+.spacing-row {
+    height: 50px;
+}
+
+.welcome-text{
+    padding-top: 10%;
+}
+
+.welcome-pic-wrapper{
+    padding: 50px;
+    width: 45%;
+}
+
+.welcome-pic{
+    float:right;
+    height: 100%;
+    width: 100%;
+}
+
