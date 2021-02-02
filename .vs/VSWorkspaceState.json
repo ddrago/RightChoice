@@ -3,8 +3,9 @@
     "",
     "\\right_choice",
     "\\right_choice\\rango",
-    "\\right_choice\\right_choice"
+    "\\right_choice\\right_choice",
+    "\\right_choice\\stuarts pop script"
   ],
-  "SelectedNode": "\\right_choice\\populate_script.py",
+  "SelectedNode": "\\right_choice\\rango\\views.py",
   "PreviewInSolutionExplorer": false
 }

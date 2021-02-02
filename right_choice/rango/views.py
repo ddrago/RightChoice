@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from rango.models import Course_Uni, University, Course_College, Course_Apprenticeship, College, Apprenticeship, Career, SchoolSubjects, Company, User
+from django.db.models import Q
 def index(request):
     context_dict = {'boldmessage': 'Context dict test'}
     return render(request, 'rango/index.html', context=context_dict)
@@ -9,6 +10,29 @@ def about(request):
     context_dict = {'boldmessage': 'Created by Stuart, Euan, Diego, Zhenkun and Daniyal'}
     return render(request, 'rango/about.html', context=context_dict)
 
+
+def SearchResults(request):
+    if request.method == 'GET':
+        query= request.GET.get('q')
+
+        submitbutton= request.GET.get('submit')
+
+        if query is not None:
+            lookups= Q(name__icontains=query)
+
+            results= Course_Uni.objects.filter(lookups).distinct()
+            collegeResults = Course_College.objects.filter(lookups).distinct()
+            apprenticeshipResults = Course_Apprenticeship.objects.filter(lookups).distinct()
+
+            context={'results': results, 'collegeResults': collegeResults, 'apprenticeshipResults' : apprenticeshipResults,'submitbutton': submitbutton}
+
+            return render(request, 'rango/search_results.html', context)
+
+        else:
+            return render(request, 'rango/search_results.html')
+
+    else:
+        return render(request, 'rango/search_results.html')
 def uni_course(request, uni_course_slug):
     context_dict = {}
 

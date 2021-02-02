@@ -1,6 +1,8 @@
 ﻿{% extends 'rango/base.html' %}
 {% block title_block %}
+{% load staticfiles %}
 Homepage
+
 {% endblock %}
 
 {% block body_block %}
@@ -8,122 +10,122 @@ Homepage
 <head>
 
 
- <meta charset="utf-8">
- <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title></title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title></title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <!-- Vendor CSS Files -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
 
     <link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome.min.css">
 
-  <!-- Template Main CSS File -->
-  <link href="static/css/style.css" rel="stylesheet">
-
+    <!-- Template Main CSS File -->
+    <link href="static/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
+    
 </head>
 
 <body>
 
-{#  <!-- ======= Header ======= -->#}
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
+    {#  <!-- ======= Header ======= -->#}
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
 
-
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Right Choice</h1>
-          <h2>Supporting pupils to make the right choices for the future</h2>
-            
-          <div class="d-flex">
-            <a href="#" class="btn-get-started">Career Path</a>
-
-          </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <img src="static/images/hero-img.png" class="img-fluid animated" alt="">
-        </div>
-      </div>
-    </div>
-
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-
-    <!-- =======  Section ======= -->
-    <section id="team" class="team ">
-      <div class="container">
-
-
-          <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-            <div class="input-group">
-              <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light">
-              <div class="input-group-append">
-                <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search" aria-hidden="true"></i></button>
-              </div>
-            </div>
-          </div>
-
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="card member">
-              <img  src="media/uni_images/UniOfG.jpg" alt="" >
-              <h4 class="mb-3" style =  "color: #0b2e13" >University</h4>
-               <a href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Search</a>
-              <div class="social">
-
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="card member">
-              <img src="static/images/College.jpg" alt="">
-              <h4 class="mb-3" style =  "color: #0b2e13">College</h4>
-              <a href="{% url 'rango:college' %}" class="btn btn-outline-secondary">Search</a>
-
-
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="card member">
-              <img src="static/images/apprentice.jpg" alt="">
-              <h4 class="mb-3" style =  "color: #0b2e13">Apprenticeships</h4>
-              <a href="{% url 'rango:apprenticeship' %}" class="btn btn-outline-secondary" >Search</a>
-
-            </div>
-          </div>
-
-          
 
         </div>
+    </header><!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
 
-      </div>
-    </section><!--  Section -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                    <h1>Right Choice</h1>
+                    <h2>Supporting pupils to make the right choices for the future</h2>
+
+                    <div class="d-flex">
+                        <a href="#" class="btn-get-started">Career Path</a>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 hero-img">
+                    <img src="static/images/hero-img.png" class="img-fluid animated" alt="">
+                </div>
+            </div>
+        </div>
+
+    </section><!-- End Hero -->
+
+    <main id="main">
 
 
-  </main><!-- End #main -->
+        <!-- =======  Section ======= -->
+        <section id="team" class="team ">
+            <div class="container">
 
-  <!-- Template Main JS File -->
-  <script src="vendor/main.js"></script>
+
+                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                    <div class="input-group">
+                        <form action="{% url 'rango:search_results' %}" method="GET" value="{{request.GET.q}}">
+                            <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" name="q" value="{{request.GET.q}}" class="form-control border-0 bg-light">
+                        </form>
+                        
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="card member">
+                            <img src="media/uni_images/UniOfG.jpg" alt="">
+                            <h4 class="mb-3" style="color: #0b2e13">University</h4>
+                            <a href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Search</a>
+                            <div class="social">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="card member">
+                            <img src="static/images/College.jpg" alt="">
+                            <h4 class="mb-3" style="color: #0b2e13">College</h4>
+                            <a href="{% url 'rango:college' %}" class="btn btn-outline-secondary">Search</a>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="card member">
+                            <img src="static/images/apprentice.jpg" alt="">
+                            <h4 class="mb-3" style="color: #0b2e13">Apprenticeships</h4>
+                            <a href="{% url 'rango:apprenticeship' %}" class="btn btn-outline-secondary">Search</a>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </section><!--  Section -->
+
+
+    </main><!-- End #main -->
+    <!-- Template Main JS File -->
+    <script src="vendor/main.js"></script>
 
 </body>
 

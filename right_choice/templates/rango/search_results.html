@@ -1,0 +1,41 @@
+﻿{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Search Results
+  
+{% endblock %}
+
+{% block body_block %}
+    
+<div class="jumbotron">
+    <div class='container'>
+        <h1 align="center">Search Results</h1>
+
+    </div>
+</div>
+
+{% if results %}
+
+    {% for result in results %}
+            <a href="{% url 'rango:uni_course' result.slug %}">{{result.name}}</a>
+    {% endfor %}
+{% endif %}
+
+{% if collegeResults %}
+
+    {% for result in collegeResults %}
+            <a href="{% url 'rango:college_course' result.slug %}">{{result.name}}</a>
+    {% endfor %}
+{% endif %}
+{% if apprenticeshipResults %}
+
+    {% for result in apprenticeshipResults %}
+            <a href="{% url 'rango:apprenticeship_course' result.slug %}">{{result.name}}</a>
+    {% endfor %}
+{% endif %}
+
+{% if not results and not collegeResults and not apprenticeshipResults %}
+There are no results for your search
+{% endif %}
+{% endblock %}
