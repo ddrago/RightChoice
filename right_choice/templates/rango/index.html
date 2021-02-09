@@ -72,14 +72,11 @@ Homepage
         <section id="team" class="team ">
             <div class="container">
 
-
-                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-                    <div class="input-group">
+                <div class="row pb-40">
+                    <div class="search-bar ">
                         <form action="{% url 'rango:search_results' %}" method="GET" value="{{request.GET.q}}">
-                            <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" name="q" value="{{request.GET.q}}" class="form-control border-0 bg-light">
+                            <input type="search" placeholder="Search..." aria-describedby="button-addon1" name="q" value="{{request.GET.q}}" class="shadow form-control form-control-lg mb-4 rounded rounded-pill">
                         </form>
-                        
-
                     </div>
                 </div>
 
@@ -88,19 +85,14 @@ Homepage
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="card member">
                             <img src="media/uni_images/UniOfG.jpg" alt="">
-                            <h4 class="mb-3" style="color: #0b2e13">University</h4>
-                            <a href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Search</a>
-                            <div class="social">
-
-                            </div>
+                            <a href="{% url 'rango:university' %}" class="btn btn-light btn-lg">Universities</a>
                         </div>
                     </div>
 
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="card member">
                             <img src="static/images/College.jpg" alt="">
-                            <h4 class="mb-3" style="color: #0b2e13">College</h4>
-                            <a href="{% url 'rango:college' %}" class="btn btn-outline-secondary">Search</a>
+                            <a href="{% url 'rango:college' %}" class="btn btn-light btn-lg">Colleges</a>
 
 
                         </div>
@@ -109,13 +101,13 @@ Homepage
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="card member">
                             <img src="static/images/apprentice.jpg" alt="">
-                            <h4 class="mb-3" style="color: #0b2e13">Apprenticeships</h4>
-                            <a href="{% url 'rango:apprenticeship' %}" class="btn btn-outline-secondary">Search</a>
+                            <a href="{% url 'rango:apprenticeship' %}" class="btn btn-ligh btn-lg">Apprenticeships</a>
 
                         </div>
                     </div>
+                </div>
 
-
+                <div class="row">
 
                 </div>
 

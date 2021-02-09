@@ -27,20 +27,32 @@ University Page
 
     <div class="row spacing-row"> </div>
 
-    <div class="row">
-        <div id="content-wrap">
-            <div class="h-100 page-background bd-content py-5 px-5">		
-                <h1>Rightchoice website</h1>
-                <div> 
-                    Get your university information here! <br />
-                    <strong>{{ boldmessage }}</strong><br />
+    <div class="row"> <!-- iterate thorugh the various universities and display them as cards -->
+        {% if universities_list %}
+
+            {% for university in universities_list %}
+                <div class="column">
+                    <div class="card">
+                        <img src="{{ MEDIA_URL }}{{ pictures|getDictValue:university }}" alt="{{ university.name }}" style="width:100%;height:50%">
+                        <div class="container">
+                            <h5>
+                                <a href="{% url 'rightchoice:university' university.slug %}" style="color:black"> {{ university.name }}  </a> 
+                            </h5>
+                            <div style="margin: 10px 0;">
+                            </div>
+                            <p class="overflow-ellipsis">
+                                {{ university.description }}
+                            </p>
+                            <p><button>See</button></p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <img src="{% static 'images/Uni.jpg' %}"
-                        alt="Picture of Glasgow Uni" /> <!-- New line -->
-                </div>
-            </div>
-        </div>
+            {% endfor %}
+
+        {% else %}
+            <p> no unis :( </p>
+        {% endif %}
+
     </div>
 </div>
 
