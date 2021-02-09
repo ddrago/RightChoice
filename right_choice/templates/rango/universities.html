@@ -1,0 +1,57 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+Universities Page
+{% endblock %}
+
+{% block body_block %}
+<head>
+    <link href="{% static 'css/secondary.css' %}" rel="stylesheet">
+</head>
+
+<div class="container me-0">
+
+    <div class="row welcome-row mb-5">
+        <div class="col welcome-text">
+            <div class="px-5 py-5 title">
+                <h1 style="font-size: 50px;"> Universities</h1>
+                <h2 style="font-size: 35px; color: #9c6ceb;">The best of the best. </h2>
+            </div>
+        </div>
+        <div class="col-8 order-2 order-sm-1">
+            <img src="{% static 'images/zaba.jpg' %}" alt="placeholder" class="welcome-pic rounded">
+        </div>
+    </div>
+
+    <div class="row spacing-row mb-5"> </div>
+
+    <div class="row"> <!-- iterate thorugh the various universities and display them as cards -->
+        {% if universities_list %}
+
+            {% for university in universities_list %}
+                <div class="column">
+                    <div class="card">
+                        <!-- <img src="{{ MEDIA_URL }}{ pictures|getDictValue:universityImage }}" alt="{{ university.name }}" style="width:100%;height:50%"> -->
+                        <img src="static/images/zaba.jpg" alt="placeholder" style="width:100%;height:50%">
+                        <div class="container">
+                            <h5>
+                                <a href="{% url 'rightchoice:university' university.slug %}" style="color:black"> {{ university.name }}  </a> 
+                            </h5>
+                            <div style="margin: 10px 0;">
+                            </div>
+                            <p class="overflow-ellipsis">
+                                {{ university.description }}
+                            </p>
+                            <p><button>See</button></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        {% else %}
+            <p> no unis :( </p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
