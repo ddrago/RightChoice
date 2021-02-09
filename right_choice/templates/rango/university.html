@@ -6,22 +6,20 @@ University Page
 
 {% block body_block %}
 <head>
-    <link href="{% static 'css/university.css' %}" rel="stylesheet">
+    <link href="{% static 'css/secondary.css' %}" rel="stylesheet">
 </head>
 
 <div class="container">
 
-    <div class="row spacing-row"> </div> <!-- a row correspondant to the header-->
-
     <div class="row welcome-row">
         <div class="col welcome-text">
-            <div class="px-5 py-5">
-                <p style="font-size: 50px; line-height: 0.8;"> Universities</p>
-                <p style="font-size: 35px; color: #d9a4ff; line-height: 0.8">The best of the best. </p>
+            <div class="px-5 py-5 title">
+                <h1 style="font-size: 50px;"> Universities</h1>
+                <h2 style="font-size: 35px; color: #9c6ceb;">The best of the best. </h2>
             </div>
         </div>
-        <div class="col-7 order-2 order-sm-1">
-            <img src="{% static 'images/zaba.jpg' %}" alt="placeholder" class="welcome-pic">
+        <div class="col-8 order-2 order-sm-1">
+            <img src="{% static 'images/zaba.jpg' %}" alt="placeholder" class="welcome-pic rounded">
         </div>
     </div>
 
@@ -33,7 +31,8 @@ University Page
             {% for university in universities_list %}
                 <div class="column">
                     <div class="card">
-                        <img src="{{ MEDIA_URL }}{{ pictures|getDictValue:university }}" alt="{{ university.name }}" style="width:100%;height:50%">
+                        <!-- <img src="{{ MEDIA_URL }}{ pictures|getDictValue:university }}" alt="{{ university.name }}" style="width:100%;height:50%"> -->
+                        <img src="static/images/zaba.jpg" alt="placeholder" style="width:100%;height:50%">
                         <div class="container">
                             <h5>
                                 <a href="{% url 'rightchoice:university' university.slug %}" style="color:black"> {{ university.name }}  </a> 
@@ -52,9 +51,7 @@ University Page
         {% else %}
             <p> no unis :( </p>
         {% endif %}
-
     </div>
 </div>
-
 
 {% endblock %}

@@ -33,6 +33,7 @@ def SearchResults(request):
 
     else:
         return render(request, 'rango/search_results.html')
+        
 def uni_course(request, uni_course_slug):
     context_dict = {}
 
