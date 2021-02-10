@@ -4,12 +4,6 @@ body {
 }
 
 a {
-    color: #FFEC44;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #FFC700;
     text-decoration: none;
 }
 
@@ -21,6 +15,15 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+#footer a{
+    color: #FFEC44;
+    text-decoration: none;
+}
+
+#footer a:hover{
+    color: #FFC700;
 }
 
 #content-wrap {

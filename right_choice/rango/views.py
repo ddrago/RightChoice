@@ -87,6 +87,15 @@ def apprenticeship_course(request, apprenticeship_course_slug):
 
     return render(request, 'rango/apprenticeship_course.html', context=context_dict)
 
+def universities(request):
+    context_dict = {}
+    #universities = University.objects.filter(name="Glasgow University").distinct()
+
+    #context_dict['universities_list'] = universities
+    
+    context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course'}
+    return render(request, 'rango/universities.html', context=context_dict)
+
 def uni(request):
     context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course'}
     return render(request, 'rango/university.html', context=context_dict)

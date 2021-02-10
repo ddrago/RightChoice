@@ -1,0 +1,11 @@
+a {
+    color: rgba(5, 0, 17, 1) !important;
+}
+
+.card-header {
+    background-color: rgb(237, 215, 255) !important;
+}
+
+.card{
+    margin-bottom: auto;
+}

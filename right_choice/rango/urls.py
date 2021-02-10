@@ -5,6 +5,7 @@ app_name = 'rango'
 urlpatterns = [
 path('', views.index, name='index'),
 path('about/', views.about, name='about'),
+path('universities/', views.universities, name='universities'),
 path('university/', views.uni, name='university'),
 path('college/', views.college, name='college'),
 path('apprenticeship/', views.apprenticeship, name='apprenticeship'),

@@ -201,13 +201,13 @@ section {
   box-shadow: 3px 3px 7px #999;
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
- }
+}
 
 .card{
   box-shadow: 3px 3px 7px rgb(211, 211, 211);
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
- }
+}
 
 /*--------------------------------------------------------------
 # Search bar

@@ -9,10 +9,10 @@ Universities Page
     <link href="{% static 'css/secondary.css' %}" rel="stylesheet">
 </head>
 
-<div class="container me-0">
+<div class="container mt-4">
 
     <div class="row welcome-row mb-5">
-        <div class="col welcome-text">
+        <div class="col-4 welcome-text">
             <div class="px-5 py-5 title">
                 <h1 style="font-size: 50px;"> Universities</h1>
                 <h2 style="font-size: 35px; color: #9c6ceb;">The best of the best. </h2>
@@ -29,29 +29,36 @@ Universities Page
         {% if universities_list %}
 
             {% for university in universities_list %}
-                <div class="column">
-                    <div class="card">
-                        <!-- <img src="{{ MEDIA_URL }}{ pictures|getDictValue:universityImage }}" alt="{{ university.name }}" style="width:100%;height:50%"> -->
-                        <img src="static/images/zaba.jpg" alt="placeholder" style="width:100%;height:50%">
-                        <div class="container">
-                            <h5>
-                                <a href="{% url 'rightchoice:university' university.slug %}" style="color:black"> {{ university.name }}  </a> 
-                            </h5>
-                            <div style="margin: 10px 0;">
-                            </div>
-                            <p class="overflow-ellipsis">
-                                {{ university.description }}
-                            </p>
-                            <p><button>See</button></p>
-                        </div>
-                    </div>
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mb-4">
+                <div class="card member">
+                    <!-- <img src="{{ MEDIA_URL }}{ pictures|getDictValue:universityImage }}" alt="{{ university.name }}" style="width:100%;height:50%"> -->
+                    <img src="{% static 'images/zaba.jpg' %}" alt="placeholder" style="width:100%;height:100%">
+                    <a href="{% url 'rightchoice:university' university.slug %}" style="color:black" class="mb-1"> {{ university.name }}  </a>
+                    <p class="overflow-ellipsis">
+                        {{ university.description }}
+                    </p>
                 </div>
+            </div> 
             {% endfor %}
 
         {% else %}
-            <p> no unis :( </p>
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mb-4">
+                <div class="card member">
+                    <img src="{% static 'images/zaba.jpg' %}" alt="placeholder" style="width:100%;height:100%">
+                    <a href="{% url 'index' %}" class="btn btn-light btn-lg">No unis :(</a>
+                    <p class="overflow-ellipsis pe-3 ps-3 pt-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    
+                    </p>
+                </div>
+            </div> 
         {% endif %}
     </div>
+
+    <div class="row spacing-row mb-5"> </div>
+
 </div>
 
 {% endblock %}
