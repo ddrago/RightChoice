@@ -1,0 +1,49 @@
+﻿{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Uni Search Results
+{% endblock %}
+
+{% block body_block %}
+<head>
+    <link href="{% static 'css/secondary.css' %}" rel="stylesheet">
+</head>
+
+<div class="container">
+
+    <div class="row spacing-row mb-5"> </div>
+
+    <div class="row jumbotron mb-4">
+        <div class='container'>
+            <h1 align="left">Search Results:</h1>
+
+        </div>
+    </div>
+
+    {% if results %}
+    University Results
+    {% for result in results %}
+    <div class="card row mb-3">
+        <a href="{% url 'rango:uni_course' result.slug %}" class="card-header card-title pt-3">
+            <h5 style="color: black;">{{result.name}}</h5>
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">No results found for this search</h5>
+            <p class="card-text">Try searching for something more simple, like a single University, or the name of a course you're interested in.</p>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    
+
+    <div class="row spacing-row mb-5"> </div>
+
+    {% endblock %}
+
+
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #3b2e47;
