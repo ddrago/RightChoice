@@ -105,11 +105,11 @@ def apprenticeship_course(request, apprenticeship_course_slug):
         
 
         context_dict['course'] = course
-        context_dict['college'] = college
+        #context_dict['college'] = college
         
     except Category.DoesNotExist:
         context_dict['course'] = None
-        context_dict['college'] = None
+       # context_dict['college'] = None
 
     return render(request, 'rango/apprenticeship_course.html', context=context_dict)
 
@@ -126,9 +126,11 @@ def uni(request, university_slug):
     context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course', 'university': university}
     return render(request, 'rango/university.html', context=context_dict)
 
-def college(request):
-    context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course'}
-    return render(request, 'rango/college.html', context=context_dict)
+def colleges(request):
+    colleges = College.objects.all()
+    context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course', 'college_list':colleges}
+    
+    return render(request, 'rango/colleges.html', context=context_dict)
 
 def apprenticeship(request):
     context_dict = {'boldmessage': 'Look at all the companies offering apprenticeships'}
