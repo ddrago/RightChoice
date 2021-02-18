@@ -33,7 +33,7 @@ Universities Page
                     href="% url 'rango:university' university.slug %}"
                     -->
                     <img src="{{ MEDIA_URL }}/uni_images/{{ university.universityImage }}" alt="{{ university.name }}" style="width:100%;height:100%">
-                    <a href="{% url 'rango:university' %}" class="btn btn-light btn-lg mb-1"> {{ university.name }}  </a>
+                    <a href="{% url 'rango:university' university.slug %}" class="btn btn-light btn-lg mb-1"> {{ university.name }}  </a>
                     {% if university.description %}
                         <p class="overflow-ellipsis pe-3 ps-3 pt-3"></p>
                             {{ university.description }}

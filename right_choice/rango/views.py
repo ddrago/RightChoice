@@ -95,8 +95,9 @@ def universities(request):
     
     return render(request, 'rango/universities.html', context=context_dict)
 
-def uni(request):
-    context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course'}
+def uni(request, university_slug):
+    university = University.objects.get(slug=university_slug)
+    context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course', 'university': university}
     return render(request, 'rango/university.html', context=context_dict)
 
 def college(request):

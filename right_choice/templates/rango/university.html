@@ -18,7 +18,7 @@ University Page
         <meta name="generator" content="Jekyll v3.8.5">
         <link rel="icon" href="{% static 'images/favicon.ico' %}">
         <title>
-            rightchoice - University
+            rightchoice - {{university.name}}
         </title>
 
         <!-- Bootstrap core CSS -->
@@ -32,7 +32,7 @@ University Page
 
 <body>
     <p>
-            <h1 style="font-family:arial;color:black;font-size:20px;">University</h1>
+            <h1 style="font-family:arial;color:black;font-size:20px;">{{university.name}}</h1>
 
         <div align="centre">
             <b style="font-family:arial;color:black;font-size:20px;">Get your university information here!</b> <br/>
@@ -57,73 +57,73 @@ University Page
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
                 <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Computer Scenice</a>
+                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Computer Scenice</a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
                 <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Software Engineering</a>
+                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Software Engineering</a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
                 <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Cyber Secuity</a>
+                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Cyber Secuity</a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
                 <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Operating system</a>
+                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Operating system</a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
                 <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Subject A</a>
+                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Subject A</a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
                 <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Subject B</a>
+                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Subject B</a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
                 <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Subject C</a>
+                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Subject C</a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
                 <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Subject D</a>
+                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Subject D</a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
                 <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Subject E</a>
+                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Subject E</a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
                 <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Subject F</a>
+                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Subject F</a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
                 <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Subject G</a>
+                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Subject G</a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
                 <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' %}" class="btn btn-outline-secondary">Subject H</a>
+                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Subject H</a>
                 </div>
             </div>
 
