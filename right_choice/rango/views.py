@@ -33,6 +33,32 @@ def SearchResults(request):
 
     else:
         return render(request, 'rango/search_results.html')
+
+def search_results_uni(request, university_slug):
+
+    university = University.objects.get(slug=university_slug)
+    if request.method == 'GET':
+        query= request.GET.get('q')
+
+        submitbutton= request.GET.get('submit')
+
+        if query is not None:
+            lookups= Q(name__icontains=query)
+
+            results= Course_Uni.objects.filter(lookups, universityName=university.name).distinct()
+
+            context={'results': results, 'submitbutton': submitbutton}
+
+            return render(request, 'rango/search_results.html', context)
+
+        else:
+            return render(request, 'rango/search_results.html')
+
+    else:
+        return render(request, 'rango/search_results.html')
+
+
+
         
 def uni_course(request, uni_course_slug):
     context_dict = {}

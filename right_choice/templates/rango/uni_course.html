@@ -19,7 +19,7 @@ Course Page
 
         <div class="col-md-7 align-self-end my-5">
             <div class="title">
-                <a href="{% url 'rango:universities' %}" class="uni-link">
+                <a href="{% url 'rango:university' course.universityName.slug %}" class="uni-link">
                     <h2 class="" style=""> {{ course.universityName.name }} </h2>
                 </a>
                 <h1 style="font-size: 50px;"> {{ course.name }} </h1>

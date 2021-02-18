@@ -44,16 +44,17 @@ University Page
 
     <p>
         <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-                <div class="input-group">
-                    <form action="{% url 'rango:search_results' %}" method="GET" value="{{request.GET.q}}">
-                        <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" name="q" value="{{request.GET.q}}" class="form-control border-0 bg-light">
-                    </form>
+            <div class="input-group">
+
+                <form action="{% url 'rango:search_results_uni' university.slug %}" method="GET" value="{{request.GET.q}}">
+                    <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" name="q" value="{{request.GET.q}}" class="form-control border-0 bg-light">
+                </form>
 
 
-                </div>
+            </div>
         </div>
 
-    <p>
+<p>
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
                 <div class="card member">
