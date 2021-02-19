@@ -57,6 +57,29 @@ def search_results_uni(request, university_slug):
     else:
         return render(request, 'rango/search_results.html')
 
+def search_results_college(request, college_slug):
+
+    college = College.objects.get(slug=college_slug)
+    if request.method == 'GET':
+        query= request.GET.get('q')
+
+        submitbutton= request.GET.get('submit')
+
+        if query is not None:
+            lookups= Q(name__icontains=query)
+
+            collegeResults= Course_College.objects.filter(lookups, collegeName=college.name).distinct()
+
+            context={'collegeResults': collegeResults, 'submitbutton': submitbutton}
+
+            return render(request, 'rango/search_results.html', context)
+
+        else:
+            return render(request, 'rango/search_results.html')
+
+    else:
+        return render(request, 'rango/search_results.html')
+
 
 
         
@@ -131,6 +154,12 @@ def colleges(request):
     context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course', 'college_list':colleges}
     
     return render(request, 'rango/colleges.html', context=context_dict)
+
+def college(request, college_slug):
+    college = College.objects.get(slug=college_slug)
+    context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course', 'college': college}
+    return render(request, 'rango/college.html', context=context_dict)
+
 
 def apprenticeship(request):
     context_dict = {'boldmessage': 'Look at all the companies offering apprenticeships'}
