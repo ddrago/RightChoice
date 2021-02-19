@@ -33,6 +33,32 @@ def SearchResults(request):
 
     else:
         return render(request, 'rango/search_results.html')
+
+def search_results_uni(request, university_slug):
+
+    university = University.objects.get(slug=university_slug)
+    if request.method == 'GET':
+        query= request.GET.get('q')
+
+        submitbutton= request.GET.get('submit')
+
+        if query is not None:
+            lookups= Q(name__icontains=query)
+
+            results= Course_Uni.objects.filter(lookups, universityName=university.name).distinct()
+
+            context={'results': results, 'submitbutton': submitbutton}
+
+            return render(request, 'rango/search_results.html', context)
+
+        else:
+            return render(request, 'rango/search_results.html')
+
+    else:
+        return render(request, 'rango/search_results.html')
+
+
+
         
 def uni_course(request, uni_course_slug):
     context_dict = {}
@@ -79,30 +105,32 @@ def apprenticeship_course(request, apprenticeship_course_slug):
         
 
         context_dict['course'] = course
-        context_dict['college'] = college
+        #context_dict['college'] = college
         
     except Category.DoesNotExist:
         context_dict['course'] = None
-        context_dict['college'] = None
+       # context_dict['college'] = None
 
     return render(request, 'rango/apprenticeship_course.html', context=context_dict)
 
 def universities(request):
     context_dict = {}
-    #universities = University.objects.filter(name="Glasgow University").distinct()
+    universities = University.objects.all()
 
-    #context_dict['universities_list'] = universities
+    context_dict['universities_list'] = universities
     
-    context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course'}
     return render(request, 'rango/universities.html', context=context_dict)
 
-def uni(request):
-    context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course'}
+def uni(request, university_slug):
+    university = University.objects.get(slug=university_slug)
+    context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course', 'university': university}
     return render(request, 'rango/university.html', context=context_dict)
 
-def college(request):
-    context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course'}
-    return render(request, 'rango/college.html', context=context_dict)
+def colleges(request):
+    colleges = College.objects.all()
+    context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course', 'college_list':colleges}
+    
+    return render(request, 'rango/colleges.html', context=context_dict)
 
 def apprenticeship(request):
     context_dict = {'boldmessage': 'Look at all the companies offering apprenticeships'}

@@ -1,0 +1,18 @@
+.welcome-pic{
+    width: 60vh;
+    height: 60vh;
+}
+
+.subsection-title{
+    color: rgb(117, 117, 117);
+}
+
+.uni-link{
+    font-size: 40px; 
+    color: #9c6ceb;
+    transition: 0.5s;
+}
+
+.uni-link:hover{
+    color: rgb(63, 0, 114);
+}
