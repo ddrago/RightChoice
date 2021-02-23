@@ -34,6 +34,48 @@ def SearchResults(request):
     else:
         return render(request, 'rango/search_results.html')
 
+def SearchResultsUniversities(request):
+    if request.method == 'GET':
+        query= request.GET.get('q')
+
+        submitbutton= request.GET.get('submit')
+
+        if query is not None:
+            lookups= Q(name__icontains=query)
+
+            results= Course_Uni.objects.filter(lookups).distinct()
+
+            context={'results': results, 'submitbutton': submitbutton}
+
+            return render(request, 'rango/search_results.html', context)
+
+        else:
+            return render(request, 'rango/search_results.html')
+
+    else:
+        return render(request, 'rango/search_results.html')
+
+def SearchResultsColleges(request):
+    if request.method == 'GET':
+        query= request.GET.get('q')
+
+        submitbutton= request.GET.get('submit')
+
+        if query is not None:
+            lookups= Q(name__icontains=query)
+
+            collegeResults = Course_College.objects.filter(lookups).distinct()
+
+            context={'collegeResults': collegeResults, 'submitbutton': submitbutton}
+
+            return render(request, 'rango/search_results.html', context)
+
+        else:
+            return render(request, 'rango/search_results.html')
+
+    else:
+        return render(request, 'rango/search_results.html')
+
 def search_results_uni(request, university_slug):
 
     university = University.objects.get(slug=university_slug)
@@ -48,6 +90,51 @@ def search_results_uni(request, university_slug):
             results= Course_Uni.objects.filter(lookups, universityName=university.name).distinct()
 
             context={'results': results, 'submitbutton': submitbutton}
+
+            return render(request, 'rango/search_results.html', context)
+
+        else:
+            return render(request, 'rango/search_results.html')
+
+    else:
+        return render(request, 'rango/search_results.html')
+
+def search_results_college(request, college_slug):
+
+    college = College.objects.get(slug=college_slug)
+    if request.method == 'GET':
+        query= request.GET.get('q')
+
+        submitbutton= request.GET.get('submit')
+
+        if query is not None:
+            lookups= Q(name__icontains=query)
+
+            collegeResults= Course_College.objects.filter(lookups, collegeName=college.name).distinct()
+
+            context={'collegeResults': collegeResults, 'submitbutton': submitbutton}
+
+            return render(request, 'rango/search_results.html', context)
+
+        else:
+            return render(request, 'rango/search_results.html')
+
+    else:
+        return render(request, 'rango/search_results.html')
+
+def search_results_apprenticeships(request):
+
+    if request.method == 'GET':
+        query= request.GET.get('q')
+
+        submitbutton= request.GET.get('submit')
+
+        if query is not None:
+            lookups= Q(name__icontains=query)
+
+            apprenticeshipResults= Course_Apprenticeship.objects.filter(lookups).distinct()
+
+            context={'apprenticeshipResults': apprenticeshipResults, 'submitbutton': submitbutton}
 
             return render(request, 'rango/search_results.html', context)
 
@@ -132,7 +219,14 @@ def colleges(request):
     
     return render(request, 'rango/colleges.html', context=context_dict)
 
-def apprenticeship(request):
-    context_dict = {'boldmessage': 'Look at all the companies offering apprenticeships'}
-    return render(request, 'rango/apprenticeship.html', context=context_dict)
+def college(request, college_slug):
+    college = College.objects.get(slug=college_slug)
+    context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course', 'college': college}
+    return render(request, 'rango/college.html', context=context_dict)
+
+
+def apprenticeships(request):
+    apprenticeships = Course_Apprenticeship.objects.all()
+    context_dict = {'boldmessage': 'Look at all the companies offering apprenticeships', 'apprenticeship_list': apprenticeships}
+    return render(request, 'rango/apprenticeships.html', context=context_dict)
 

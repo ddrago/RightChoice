@@ -1,7 +1,7 @@
 ﻿{% extends 'rango/base.html' %}
 {% load staticfiles %}
 {% block title_block %}
-College Page
+Apprenticeship Page
 {% endblock %}
 
 {% block body_block %}
@@ -14,7 +14,7 @@ College Page
     <div class="row welcome-row mb-5">
         <div class="col-4 welcome-text">
             <div class="px-5 py-5 title">
-                <h1 style="font-size: 50px;"> Colleges</h1> 
+                <h1 style="font-size: 50px;"> apprenticeships</h1>
             </div>
         </div>
         <div class="col-8 order-2 order-sm-1">
@@ -23,28 +23,29 @@ College Page
     </div>
 
     <div class="row">
+        <!-- iterate thorugh the various universities and display them as cards -->
+
         <div class="row mb-5">
             <div class="search-bar ">
-                <form action="{% url 'rango:SearchResultsColleges' %}" method="GET" value="{{request.GET.q}}">
+                <form action="{% url 'rango:search_results_apprenticeships' %}" method="GET" value="{{request.GET.q}}">
                     <input type="search" placeholder="Search..." aria-describedby="button-addon1" name="q" value="{{request.GET.q}}" class="shadow form-control form-control-lg mb-4 rounded rounded-pill">
                 </form>
             </div>
         </div>
-        <!-- iterate thorugh the various universities and display them as cards -->
-        {% if college_list %}
+        {% if apprenticeship_list %}
 
-        {% for college in college_list %}
+        {% for apprenticeship in apprenticeship_list %}
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mb-4">
             <div class="card member">
 
                 <!-- <img src="{{ MEDIA_URL }}{ pictures|getDictValue:universityImage }}" alt="{{ university.name }}" style="width:100%;height:100%">
             href="% url 'rango:university' university.slug %}"
             -->
-                <img src="{{ MEDIA_URL }}/college_images/{{ college.collegeImage }}" alt="{{ college.name }}" style="width:100%;height:100%">
-                <a href="{% url 'rango:college' college.slug %}" class="btn btn-light btn-lg mb-1"> {{ college.name }}  </a>
-                {% if college.description %}
+                <img src="{{ MEDIA_URL }}/company_images/{{ apprenticeship.companyName.companyImage }}" alt="{{ apprenticeship.name }}" style="width:100%;height:100%">
+                <a href="{% url 'rango:apprenticeship_course' apprenticeship.slug %}" class="btn btn-light btn-lg mb-1"> {{ apprenticeship.name }}  </a>
+                {% if apprenticeship.description %}
                 <p class="overflow-ellipsis pe-3 ps-3 pt-3"></p>
-                {{ college.description }}
+                {{ apprenticeship.description }}
                 </p>
                 {% endif %}
             </div>
@@ -70,6 +71,5 @@ College Page
     <div class="row spacing-row mb-5"> </div>
 
 </div>
-
 
 {% endblock %}
