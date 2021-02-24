@@ -25,6 +25,7 @@ Universities Page
 
     <div class="row">
         <!-- iterate thorugh the various universities and display them as cards -->
+
         <div class="row mb-5">
             <div class="search-bar ">
                 <form action="{% url 'rango:SearchResultsUniversities' %}" method="GET" value="{{request.GET.q}}">
@@ -34,36 +35,36 @@ Universities Page
         </div>
         {% if universities_list %}
 
-        {% for university in universities_list %}
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mb-4">
-            <div class="card member">
-                <!-- <img src="{{ MEDIA_URL }}{ pictures|getDictValue:universityImage }}" alt="{{ university.name }}" style="width:100%;height:100%">
-            href="% url 'rango:university' university.slug %}"
-            -->
-                <img src="{{ MEDIA_URL }}/uni_images/{{ university.universityImage }}" alt="{{ university.name }}" style="width:100%;height:100%">
-                <a href="{% url 'rango:university' university.slug %}" class="btn btn-light btn-lg mb-1"> {{ university.name }}  </a>
-                {% if university.description %}
-                <p class="overflow-ellipsis pe-3 ps-3 pt-3"></p>
-                {{ university.description }}
-                </p>
-                {% endif %}
-            </div>
-        </div>
-        {% endfor %}
+            {% for university in universities_list %}
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mb-4">
+                    <div class="card member">
+                        <!-- <img src="{{ MEDIA_URL }}{ pictures|getDictValue:universityImage }}" alt="{{ university.name }}" style="width:100%;height:100%">
+                    href="% url 'rango:university' university.slug %}"
+                    -->
+                        <img src="{{ MEDIA_URL }}/uni_images/{{ university.universityImage }}" alt="{{ university.name }}" style="width:100%;height:100%">
+                        <a href="{% url 'rango:university' university.slug %}" class="btn btn-light btn-lg mb-1"> {{ university.name }}  </a>
+                        {% if university.description %}
+                        <p class="overflow-ellipsis pe-3 ps-3 pt-3"></p>
+                        {{ university.description }}
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
 
         {% else %}
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mb-4">
-            <div class="card member">
-                <img src="{% static 'images/zaba.jpg' %}" alt="placeholder" style="width:100%;height:100%">
-                <a href="{% url 'index' %}" class="btn btn-light btn-lg">No unis :(</a>
-                <p class="overflow-ellipsis pe-3 ps-3 pt-3">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mb-4">
+                <div class="card member">
+                    <img src="{% static 'images/zaba.jpg' %}" alt="placeholder" style="width:100%;height:100%">
+                    <a href="{% url 'index' %}" class="btn btn-light btn-lg">No unis :(</a>
+                    <p class="overflow-ellipsis pe-3 ps-3 pt-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-                </p>
+                    </p>
+                </div>
             </div>
-        </div>
         {% endif %}
     </div>
 

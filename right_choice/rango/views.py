@@ -145,7 +145,6 @@ def search_results_apprenticeships(request):
         return render(request, 'rango/search_results.html')
 
 
-
         
 def uni_course(request, uni_course_slug):
     context_dict = {}
@@ -196,7 +195,7 @@ def apprenticeship_course(request, apprenticeship_course_slug):
         
     except Category.DoesNotExist:
         context_dict['course'] = None
-       # context_dict['college'] = None
+        # context_dict['college'] = None
 
     return render(request, 'rango/apprenticeship_course.html', context=context_dict)
 

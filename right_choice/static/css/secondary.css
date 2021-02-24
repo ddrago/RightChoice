@@ -12,7 +12,7 @@
 
 .welcome-pic{
     float:right;
-    height:90%;
+    height:92%;
     width: 90%;
     
 }
@@ -40,3 +40,34 @@
     text-overflow: ellipsis;
 }
 
+/*--------------------------------------------------------------
+# Search bar
+--------------------------------------------------------------*/
+
+.form-control{
+    border: none;
+}
+
+.form-control:focus {
+    border: none;
+    
+}
+
+.form-control::placeholder {
+    font-size: 0.95rem;
+    font-style: italic;
+    text-align: left;
+}
+
+.search-bar form {
+    font-size: 20px;
+    height: 20px;
+}
+
+.search-bar input[type=text] {
+    border: none;
+}
+
+.pb-40 {
+    padding-bottom: 40px;
+}

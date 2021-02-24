@@ -1,4 +1,37 @@
-﻿input[type=search] {
+﻿/*--------------------------------------------------------------
+# Search bar
+--------------------------------------------------------------*/
+
+.form-control{
+    border: none;
+}
+
+.form-control:focus {
+    border: none;
+    
+}
+
+.form-control::placeholder {
+    font-size: 0.95rem;
+    font-style: italic;
+    text-align: left;
+}
+
+.search-bar form {
+    font-size: 20px;
+    width:20%;
+    height: 20px;
+}
+
+.search-bar input[type=text] {
+    border: none;
+}
+
+.pb-40 {
+    padding-bottom: 40px;
+}
+
+input[type=search] {
     width: 500%;
     padding: 2px 10px;
     margin: 8px 0;

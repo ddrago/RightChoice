@@ -5,26 +5,62 @@ Course Page
 {% endblock %}
 
 {% block body_block %}
-<br />
-<br />
-<h1>{{ course.name }}</h1>
-<div>
-    University - <br />
-    <strong>{{ course.collegeName.name }}</strong><br />
+<head>
+    <link href="{% static 'css/tertiary.css' %}" rel="stylesheet">
+</head>
 
-    Grades Required - <br />
-    <strong>{{ course.gradesReq }}</strong><br />
-    Career - <br />
+<div class="container-fluid mb-5 main"> 
 
-    {% for name in course.careerName.all %}<strong>{{ name.careerName }}</strong><br />{% endfor %}
+    <div class="row shadow justify-content-end align-items-center">
 
-    Required Subjects - <br />
+        <div class="col-md-4 my-5 ">
+            <img src="{{ MEDIA_URL }}college_images/{{ course.collegeName.collegeImage }}" alt="Picture of the College" class="welcome-pic rounded-circle">
+        </div>
 
-    {% for subject in course.subReqName.all %}<strong>{{ subject.name }} {{ subject.level }}</strong><br />{% endfor %}
+        <div class="col-md-7 align-self-end my-5">
+            <div class="title">
+                <a href="{% url 'rango:college' course.collegeName.slug %}" class="uni-link">
+                    <h2 class=""> {{ course.collegeName.name }} </h2>
+                </a>
+                <h1 style="font-size: 50px;"> {{ course.name }} </h1>
+            </div>
+        </div>
 
+    </div>
+
+    <div class="row mt-5 justify-content-end">
+        <div class="col-7">
+            <div class="border-bottom py-3">
+                <h3> Requirements </h3>
+
+                <h5> 
+                    Grades required: <strong >{{ course.gradesReq }}</strong>
+                </h5>
+
+                <h5> Subjects required: </h5>
+
+                <ul class="list-group list-group-flush">
+                    {% for subject in course.subReqName.all %}
+                        <li class="list-group-item"> <strong> {{ subject.name }} {{ subject.level }} </strong></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="py-3">
+                <h3> Careers </h3>
+                
+                <ul class="list-group list-group-flush">
+                    {% for name in course.careerName.all %}
+                        <li class="list-group-item"> <strong> {{ name.careerName }}</strong></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4 mt-4"></div>
 
 </div>
-<div>
-    <img src="{{ MEDIA_URL }}college_images/{{ course.collegeName.collegeImage }}" width="400" height="200" alt="Picture of College">
-</div>
+
+
 {% endblock %}
