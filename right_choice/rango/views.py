@@ -229,3 +229,11 @@ def apprenticeships(request):
     context_dict = {'boldmessage': 'Look at all the companies offering apprenticeships', 'apprenticeship_list': apprenticeships}
     return render(request, 'rango/apprenticeships.html', context=context_dict)
 
+def uniMenuResults(request, subject):
+    print(subject)
+    lookups = Course_Uni.objects.filter(Q(name__contains=subject))
+    context_dict= {'results':lookups}
+    return render(request, 'rango/search_results.html', context=context_dict)
+
+
+
