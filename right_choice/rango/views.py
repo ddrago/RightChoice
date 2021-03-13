@@ -158,7 +158,7 @@ def uni_course(request, uni_course_slug):
         context_dict['course'] = course
         context_dict['uni'] = uni 
         
-    except Category.DoesNotExist:
+    except University.DoesNotExist:
         context_dict['course'] = None
         context_dict['uni'] = None
 
