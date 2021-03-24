@@ -20,5 +20,6 @@ path('collegeCourse/<slug:college_course_slug>/', views.college_course, name='co
 path('apprenticeshipCourse/<slug:apprenticeship_course_slug>/', views.apprenticeship_course, name='apprenticeship_course'),
 path('searchResults/', views.SearchResults, name='search_results'),
 path(r'^uniMenuResults/(?P<subject>\w+)$', views.uniMenuResults, name='uni_menu_search_results'),
+path(r'^collegeMenuResults/(?P<subject>\w+)$', views.collegeMenuResults, name='college_menu_search_results'),
 ]
 

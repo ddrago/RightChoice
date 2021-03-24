@@ -258,5 +258,11 @@ def uniMenuResults(request, subject):
     context_dict= {'results':lookups}
     return render(request, 'rango/search_results.html', context=context_dict)
 
+def collegeMenuResults(request, subject):
+    print(subject)
+    lookups = Course_College.objects.filter(Q(name__contains=subject))
+    context_dict= {'collegeResults':lookups}
+    return render(request, 'rango/search_results.html', context=context_dict)
+
 
 
