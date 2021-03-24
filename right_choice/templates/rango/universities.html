@@ -87,9 +87,9 @@ Universities Page
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mb-4">
             <div class="card member">
                 <!-- <img src="{{ MEDIA_URL }}{ pictures|getDictValue:universityImage }}" alt="{{ university.name }}" style="width:100%;height:100%">
-            href="% url 'rango:university' university.slug %}"
-            -->
-                <img src="{{ MEDIA_URL }}/uni_images/{{ university.universityImage }}" alt="{{ university.name }}" style="width:100%;height:100%">
+    href="% url 'rango:university' university.slug %}"
+    -->
+                <img src="/media/uni_images/{{ university.universityImage }}" alt="{{ university.name }}" style="width:300px;height:300px">
                 <a href="{% url 'rango:university' university.slug %}" class="btn btn-light btn-lg mb-1"> {{ university.name }}  </a>
                 {% if university.description %}
                 <p class="overflow-ellipsis pe-3 ps-3 pt-3"></p>
