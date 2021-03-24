@@ -5,10 +5,6 @@ University Page
 {% endblock %}
 
 {% block body_block %}
-<head>
-    <link href="{% static 'css/secondary.css' %}" rel="stylesheet">
-    <link href="{% static 'css/tertiary.css' %}" rel="stylesheet">
-</head>
 <html lang="en">
 
 
@@ -30,6 +26,8 @@ University Page
         <link href="https://getbootstrap.com/docs/4.2/examples/dashboard/dashboard.css" rel="stylesheet">
 
         <link href="{% static 'css/base.css' %}" rel="stylesheet">
+        <link href="{% static 'css/secondary.css' %}" rel="stylesheet">
+        <link href="{% static 'css/tertiary.css' %}" rel="stylesheet">
     </head>
 
 <body>
@@ -45,7 +43,6 @@ University Page
                 <div class="col-lg-7 align-self-end mt-5 mb-lg-5 order-first">
                     <div class="title">
                         <h1 style="font-size: 50px;"> {{ university.name }} </h1>
-                        <h2 class=""> Courses: </h2>
                     </div>
                 </div>
 
@@ -60,6 +57,10 @@ University Page
             </div>
 
             <div class="row justify-content-center align-items-center d-flex flex-wrap px-5 px-lg-0">
+
+                <div class="row mt-5">
+                    <h2 class=""> Courses: </h2>
+                </div>
 
                 {% if courses_list %}
 

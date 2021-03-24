@@ -36,13 +36,12 @@ College Page
 
             <div class="row shadow justify-content-end align-items-center d-flex flex-wrap px-5 px-lg-0">
                 <div class="col-lg-4 my-5 order-lg-first">
-                    <img src="{% static 'images/colleges.jpg' %}" alt="Picture of the College" class="welcome-pic rounded-circle">
+                    <img src="{{ MEDIA_URL }}/college_images/{{ college.collegeImage }}" alt="Picture of the College" class="welcome-pic rounded-circle">
                 </div>
 
                 <div class="col-lg-7 align-self-end mt-5 mb-lg-5 order-first">
                     <div class="title">
                         <h1 style="font-size: 50px;"> {{ college.name }} </h1>
-                        <h2 class=""> Courses: </h2>
                     </div>
                 </div>
 
@@ -57,6 +56,9 @@ College Page
             </div>
 
             <div class="row justify-content-center align-items-center d-flex flex-wrap px-5 px-lg-0">
+                <div class="row mt-5">
+                    <h2 class=""> Courses: </h2>
+                </div>
 
                 {% if courses_list %}
 
