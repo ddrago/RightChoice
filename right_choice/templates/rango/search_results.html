@@ -10,13 +10,13 @@
     <link href="{% static 'css/secondary.css' %}" rel="stylesheet">
 </head>
 
-<div class="container">
+<div class="container" align="center">
     
     <div class="row spacing-row mb-5"> </div>
 
     <div class="row jumbotron mb-4">
         <div class='container'>
-            <h1 align="left">Search Results:</h1>
+            <h1 align="center">Search Results:</h1>
     
         </div>
     </div>
@@ -29,8 +29,8 @@
             <h5 style="color: black;">{{result.name}}</h5>
         </a>
         <div class="card-body">
-            <h5 class="card-title">No results found for this search</h5>
-            <p class="card-text">Try searching for something more simple, like a single University, or the name of a course you're interested in.</p>
+            <h5 class="card-title">University - {{ result.universityName }}</h5>
+            <h5> Grades Required - {{result.gradesReq}}</h5>
         </div>
     </div>
     {% endfor %}
@@ -44,8 +44,8 @@
                 <h5 style="color: black;">{{result.name}}</h5>
             </a>
             <div class="card-body">
-                <h5 class="card-title">No results found for this search</h5>
-                <p class="card-text">Try searching for something more simple, like a single University, or the name of a course you're interested in.</p>
+                <h5 class="card-title">College - {{ result.collegeName }} {{result.gradesReq}}</h5>
+                <h5> Grades Required - {{result.gradesReq}}</h5>
             </div>
         </div>
     {% endfor %}
@@ -59,8 +59,7 @@
                 <h5 style="color: black;">{{result.name}}</h5>
             </a>
             <div class="card-body">
-                <h5 class="card-title">No results found for this search</h5>
-                <p class="card-text">Try searching for something more simple, like a single University, or the name of a course you're interested in.</p>
+                <h5 class="card-title">{{ result.companyName }} </h5>
             </div>
         </div>
     {% endfor %}
