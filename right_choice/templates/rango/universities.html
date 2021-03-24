@@ -35,40 +35,47 @@ Universities Page
         </div>
 
 
-
-        <div class="container">
-
-            <br />
-            <p align="center">STEM</p>
-            <table class="table table-hover">
-                <tbody>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Biology' %}">Biology</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Chemestry' %}">Chemestry</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Physics' %}">Physics</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Computing Science' %}">Computing Science</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Engineering' %}">Engineering</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Mathematics' %}">Mathematics</a></td>
-                </tbody>
-            </table>
-        </div>
-
+            <div class="py-5 title ">
+                <h1 style="font-size: 30px;" align="center"> Subject Shortcuts: </h1>
+            </div>
         
 
         <div class="container">
 
             <br />
-            <p align="center">Humanities</p>
-            <table class="table table-hover">
+            <table class="subjectTable" align="center">
+                <thead>
+                    <tr><th>Humanities</th><th>STEM</th></tr>
+                </thead>
                 <tbody>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'English' %}">English</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'History' %}">History</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Psychology' %}">Psychology</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Theatre' %}">Theatre</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Philosophy' %}">Philosophy</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Politics' %}">Politics</a></td>
+                    <tr>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'English' %}">English</a></td>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Biology' %}">Biology</a></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'History' %}">History</a></td>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Physics' %}">Physics</a></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Psychology' %}">Psychology</a></td>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Chemestry' %}">Chemestry</a></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Theatre' %}">Theatre</a></td>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Computing Science' %}">Computing Science</a></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Philosophy' %}">Philosophy</a></td>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Engineering' %}">Engineering</a></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Politics' %}">Politics</a></td>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Mathematics' %}">Mathematics</a></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
+
 
         {% if universities_list %}
 
