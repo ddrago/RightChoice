@@ -9,17 +9,17 @@ College Page
     <link href="{% static 'css/secondary.css' %}" rel="stylesheet">
 </head>
 
-<div class="container mt-4">
+<div class="container-fluid mt-4">
 
-    <div class="row welcome-row mb-5">
-        <div class="col-4 welcome-text">
-            <div class="px-5 py-5 title">
+    <div class="row welcome-row">
+        <div class="col-lg-5 d-flex flex-column welcome-text text-lg-end">
+            <div class="py-5 title ">
                 <h1 style="font-size: 50px;"> Colleges</h1> 
                 <h2 style="font-size: 35px; color: #9c6ceb;">Get the best preparation. </h2>
             </div>
         </div>
-        <div class="col-8 order-2 order-sm-1">
-            <img src="{% static 'images/zaba.jpg' %}" alt="placeholder" class="welcome-pic rounded">
+        <div class="col-lg-7 d-flex flex-column ">
+            <img src="{% static 'images/colleges.jpg' %}" alt="Colleges" class="welcome-pic rounded">
         </div>
     </div>
 

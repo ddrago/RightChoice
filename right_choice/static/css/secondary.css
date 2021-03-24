@@ -1,5 +1,5 @@
 .welcome-row {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .spacing-row {
@@ -11,10 +11,8 @@
 }
 
 .welcome-pic{
-    float:right;
     height:92%;
-    width: 90%;
-    
+    width: 100%;
 }
 
 .team .member {
@@ -32,6 +30,8 @@
     box-shadow: 3px 3px 7px rgb(211, 211, 211);
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
+    max-height: 500px;
+    max-width: 500px;
 }
 
 .overflow-ellipsis {

@@ -5,40 +5,19 @@ Course Page
 {% endblock %}
 
 {% block body_block %}
-<!-- <br />
-<br />
-<h1>{{ course.name }}</h1>
-<div>
-    University - <br />
-    <strong>{{ course.apprenticeshipName.name }}</strong><br />
-
-    Grades Required - <br />
-    <strong>{{ course.gradesReq }}</strong><br />
-    Career - <br />
-
-    {% for name in course.careerName.all %}<strong>{{ name.careerName }}</strong><br />{% endfor %}
-
-
-
-</div>
-<div>
-    <img src="{{ MEDIA_URL }}company_images/{{ course.companyName.companyImage }}" width="400" height="200" alt="Picture of College">
-</div> -->
-
-
 <head>
     <link href="{% static 'css/tertiary.css' %}" rel="stylesheet">
 </head>
 
 <div class="container-fluid mb-5 main"> 
 
-    <div class="row shadow justify-content-end align-items-center">
+    <div class="row shadow justify-content-end align-items-center d-flex flex-wrap px-5 px-lg-0">
 
-        <div class="col-md-4 my-5 ">
+        <div class="col-lg-4 my-5 order-lg-first">
             <img src="{{ MEDIA_URL }}company_images/{{ course.companyName.companyImage }}" alt="Picture of the Apprenticeship" class="welcome-pic rounded-circle">
         </div>
 
-        <div class="col-md-7 align-self-end my-5">
+        <div class="col-lg-7 align-self-end mt-5 mb-lg-5 order-first">
             <div class="title">
                 <a class="uni-link"> 
                     <h2 class=""> {{ course.apprenticeshipName.name }} </h2>
@@ -49,7 +28,7 @@ Course Page
 
     </div>
 
-    <div class="row mt-5 justify-content-end">
+    <div class="row mt-5 justify-content-lg-end px-5 px-lg-0">
         <div class="col-7">
             <div class="border-bottom py-3">
                 <h3> Requirements </h3>

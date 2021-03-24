@@ -11,13 +11,13 @@ Course Page
 
 <div class="container-fluid mb-5 main"> 
 
-    <div class="row shadow justify-content-end align-items-center">
+    <div class="row shadow justify-content-end align-items-center d-flex flex-wrap px-5 px-lg-0">
 
-        <div class="col-md-4 my-5 ">
+        <div class="col-lg-4 my-5 order-lg-first">
             <img src="{{ MEDIA_URL }}college_images/{{ course.collegeName.collegeImage }}" alt="Picture of the College" class="welcome-pic rounded-circle">
         </div>
 
-        <div class="col-md-7 align-self-end my-5">
+        <div class="col-lg-7 align-self-end mt-5 mb-lg-5 order-first">
             <div class="title">
                 <a href="{% url 'rango:college' course.collegeName.slug %}" class="uni-link">
                     <h2 class=""> {{ course.collegeName.name }} </h2>
@@ -28,7 +28,7 @@ Course Page
 
     </div>
 
-    <div class="row mt-5 justify-content-end">
+    <div class="row mt-5 justify-content-lg-end px-5 px-lg-0">
         <div class="col-7">
             <div class="border-bottom py-3">
                 <h3> Requirements </h3>
