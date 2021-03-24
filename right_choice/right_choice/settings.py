@@ -24,6 +24,8 @@ STATICFILES_DIRS = [STATIC_DIR, ]
 
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 # SECURITY WARNING: keep the secret key used in production secret!
+
+# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '#lc^u%4b%y)1bg%$tvduj(mi9ge328gztqhz5#b#+ac=%%9m_4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -41,8 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'right_choice',
     'rango',
-    'coverage',
+    
 ]
 
 MIDDLEWARE = [
@@ -68,7 +71,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media',
             ],
         },
     },
@@ -82,12 +84,17 @@ WSGI_APPLICATION = 'right_choice.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'right_choice',
+        'USER': 'root',
+        'PASSWORD': 'Right-Choice/2020',
+        'HOST': '127.0.0.1',
+        'PORT': '5000',
+        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'" }
     }
 }
 
-
+#'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
