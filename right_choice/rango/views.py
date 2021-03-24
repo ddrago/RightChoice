@@ -208,8 +208,19 @@ def universities(request):
     return render(request, 'rango/universities.html', context=context_dict)
 
 def uni(request, university_slug):
-    university = University.objects.get(slug=university_slug)
-    context_dict = {'boldmessage': 'Look at all the courses available or search for a desired course', 'university': university}
+
+    try:
+        university = University.objects.get(slug=university_slug)
+        context_dict = {'university': university}
+    except:
+        context_dict = {'university': None}
+    
+    try:
+        courses = Course_Uni.objects.filter(universityName=university.name).distinct()
+        context_dict['courses_list'] = courses
+    except:
+        context_dict['courses_list'] = None
+
     return render(request, 'rango/university.html', context=context_dict)
 
 def colleges(request):

@@ -7,8 +7,10 @@ University Page
 {% block body_block %}
 <head>
     <link href="{% static 'css/secondary.css' %}" rel="stylesheet">
+    <link href="{% static 'css/tertiary.css' %}" rel="stylesheet">
 </head>
 <html lang="en">
+
 
     <head>
         <meta charset="utf-8">
@@ -31,160 +33,69 @@ University Page
     </head>
 
 <body>
-    <p>
-            <h1 style="font-family:arial;color:black;font-size:20px;">University</h1>
+    <div class="container-fluid mb-5 main">
+    
+        {% if university %}
 
-        <div align="centre">
-            <b style="font-family:arial;color:black;font-size:20px;">Get your university information here!</b> <br/>
-        </div>
-
-        <div>
-            <img src="{% static 'images/Uni.jpg' %}" alt="Picture of Glasgow University" />
-        </div>
-
-    <p>
-        <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-                <div class="input-group">
-                    <form action="{% url 'rango:search_results_uni' university.slug %}" method="GET" value="{{request.GET.q}}">
-                        <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" name="q" value="{{request.GET.q}}" class="form-control border-0 bg-light">
-                    </form>
-
-
+            <div class="row shadow justify-content-end align-items-center d-flex flex-wrap px-5 px-lg-0">
+                <div class="col-lg-4 my-5 order-lg-first">
+                    <img src="{{ MEDIA_URL }}/uni_images/{{ university.universityImage }}" alt="Picture of University" class="welcome-pic rounded-circle">
                 </div>
-        </div>
 
-    <p>
-        <div class="row">
-
-            
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Computer Scenice</a>
+                <div class="col-lg-7 align-self-end mt-5 mb-lg-5 order-first">
+                    <div class="title">
+                        <h1 style="font-size: 50px;"> {{ university.name }} </h1>
+                        <h2 class=""> Courses: </h2>
+                    </div>
                 </div>
+
+                <div class="row mb-5">
+                    <div class="search-bar ">
+                        <form action="{% url 'rango:search_results_uni' university.slug %}" method="GET" value="{{request.GET.q}}">
+                            <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" name="q" value="{{request.GET.q}}" class="shadow form-control form-control-lg mb-4 rounded rounded-pill">
+                        </form>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Software Engineering</a>
-                </div>
-            </div>
+            <div class="row justify-content-center align-items-center d-flex flex-wrap px-5 px-lg-0">
 
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Cyber Secuity</a>
-                </div>
-            </div>
+                {% if courses_list %}
 
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Operating system</a>
-                </div>
-            </div>
+                    {% for course in courses_list %}
+                        <div class="col-lg-2 col-md-3 d-flex align-items-stretch mt-4 mb-4">
+                            <div class="card member">
+                                <a href="{% url 'rango:uni_course' course.slug %}" class="btn btn-light btn-lg mb-1"> {{ course.name }}  </a>
+                                {% if university.description %}
+                                <p class="overflow-ellipsis pe-3 ps-3 pt-3"></p>
+                                {{ university.description }}
+                                </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
 
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Accounting and finance</a>
-                </div>
-            </div>
+                {% else %}
 
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">English Literature</a>
-                </div>
-            </div>
+                    <p>
+                        This university doesn't currently offer courses
+                    </p>
 
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Music</a>
-                </div>
+                {% endif %}
+                
             </div>
+                
+        {% else %}
 
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">History</a>
-                </div>
-            </div>
+            <p>
+                This university doesn't exist
+            </p>
 
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Sports Science</a>
-                </div>
-            </div>
+        {% endif %}
 
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Chemistry</a>
-                </div>
-            </div>
+    </div>
 
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Engineering</a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Mathematics</a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Statistics</a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Psychology</a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Business</a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Economics</a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Education</a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Law</a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Sociology</a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Parasitology</a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-stretch">
-                <div class="card member">
-                    <a style="font-family:arial;color:black;font-size:20px;" href="{% url 'rango:university' university.slug %}" class="btn btn-outline-secondary">Medicine</a>
-                </div>
-            </div>
-
-        </div>
-    </p>
 </body>
 
 {% endblock %}
