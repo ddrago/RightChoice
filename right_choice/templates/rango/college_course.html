@@ -9,7 +9,7 @@ Course Page
     <link href="{% static 'css/tertiary.css' %}" rel="stylesheet">
 </head>
 
-<div class="container-fluid mb-5 main"> 
+<div class="container-fluid mb-5 main">
 
     <div class="row shadow justify-content-end align-items-center d-flex flex-wrap px-5 px-lg-0">
 
@@ -28,35 +28,22 @@ Course Page
 
     </div>
 
-    <div class="row mt-5 justify-content-lg-end px-5 px-lg-0">
-        <div class="col-7">
-            <div class="border-bottom py-3">
-                <h3> Requirements </h3>
+    <ul class="list-group">
+        <li class="list-group-item active" align="center"><h4>Course Info</h4></li>
+        <li class="list-group-item" align="center"><h5><strong>Entry Requirements:</strong> {{ course.gradesReq }}</h5></li>
+        {% if course.subReqName.all|first != "" %}
+        {% for subject in course.subReqName.all %}
+        <li class="list-group-item" align="center"><h5><strong>Subjects Required:</strong> {{ subject.name }} {{ subject.level }}</h5></li>
+        {% endfor %}
+        {% endif %}
+        <li class="list-group-item" align="center"> <h5><strong>Suggested Subjects:</strong> {{ course.subjectSuggestions }}</h5></li>
+        {% for name in course.careerName.all %}
+        <li class="list-group-item" align="center"><h5><strong>Career Name:</strong> {{ name.careerName }}</h5></li>
+        {% endfor %}
+        <li class="list-group-item" align="center"><h5><strong>Find our more information here:</strong> <strong><a href={{ course.collegeName.linkToCollegeWebsite }}>{{ course.collegeName.linkToCollegeWebsite }}</a></strong></h5></li>
+    </ul>
 
-                <h5> 
-                    Grades required: <strong >{{ course.gradesReq }}</strong>
-                </h5>
 
-                <h5> Subjects required: </h5>
-
-                <ul class="list-group list-group-flush">
-                    {% for subject in course.subReqName.all %}
-                        <li class="list-group-item"> <strong> {{ subject.name }} {{ subject.level }} </strong></li>
-                    {% endfor %}
-                </ul>
-            </div>
-
-            <div class="py-3">
-                <h3> Careers </h3>
-                
-                <ul class="list-group list-group-flush">
-                    {% for name in course.careerName.all %}
-                        <li class="list-group-item"> <strong> {{ name.careerName }}</strong></li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
 
     <div class="row mb-4 mt-4"></div>
 
