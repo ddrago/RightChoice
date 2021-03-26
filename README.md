@@ -9,3 +9,4 @@ Once this connection is open, you can then run the server by using this command,
 cd se05-main/right_choice (assume currently in directory where git cloned)
 python manage.py runserver
 Then using any browser navigate to http://127.0.0.1:8000/
+To access the database you need to be provided with a key, to request this please contact the group at 2389677W@student.gla.ac.uk.
