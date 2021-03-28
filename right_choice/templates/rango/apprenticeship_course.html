@@ -9,17 +9,17 @@ Course Page
     <link href="{% static 'css/tertiary.css' %}" rel="stylesheet">
 </head>
 
-<div class="container-fluid mb-5 main"> 
+<div class="container-fluid mb-5 main">
 
     <div class="row shadow justify-content-end align-items-center d-flex flex-wrap px-5 px-lg-0">
 
         <div class="col-lg-4 my-5 order-lg-first">
-            <img src="{{ MEDIA_URL }}company_images/{{ course.companyName.companyImage }}" alt="Picture of the Apprenticeship" class="welcome-pic rounded-circle">
+            <img src="/media/company_images/{{ course.companyName.companyImage }}" alt="Picture of the Apprenticeship" class="welcome-pic rounded-circle">
         </div>
 
         <div class="col-lg-7 align-self-end mt-5 mb-lg-5 order-first">
             <div class="title">
-                <a class="uni-link"> 
+                <a href="{% url 'rango:apprenticeships' %}" class="uni-link">Apprenticeships
                     <h2 class=""> {{ course.apprenticeshipName.name }} </h2>
                 </a>
                 <h1 style="font-size: 50px;"> {{ course.name }} </h1>
@@ -28,28 +28,20 @@ Course Page
 
     </div>
 
-    <div class="row mt-5 justify-content-lg-end px-5 px-lg-0">
-        <div class="col-7">
-            <div class="border-bottom py-3">
-                <h3> Requirements </h3>
-
-                <h5> 
-                    Grades required: <strong >{{ course.gradesReq }}</strong>
-                </h5>
-
-            </div>
-
-            <div class="py-3">
-                <h3> Careers </h3>
-                
-                <ul class="list-group list-group-flush">
-                    {% for name in course.careerName.all %}
-                        <li class="list-group-item"> <strong> {{ name.careerName }}</strong></li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
+    <ul class="list-group">
+        <li class="list-group-item active" align="center"><h4>Course Info</h4></li>
+        <li class="list-group-item" align="center"><h5><strong>Entry Requirements:</strong> {{ course.gradesReq }}</h5></li>
+        {% if course.subReqName.all|first != "" %}
+        {% for subject in course.subReqName.all %}
+        <li class="list-group-item" align="center"><h5><strong>Subjects Required:</strong> {{ subject.name }} {{ subject.level }}</h5></li>
+        {% endfor %}
+        {% endif %}
+        <li class="list-group-item" align="center"> <h5><strong>Suggested Subjects:</strong> {{ course.subjectSuggestions }}</h5></li>
+        {% for name in course.careerName.all %}
+        <li class="list-group-item" align="center"><h5><strong>Career Name:</strong> {{ name.careerName }}</h5></li>
+        {% endfor %}
+        <li class="list-group-item" align="center"><h5><strong>Find our more information here:</strong> <strong><a href={{ course.companyName.linkToCompanyWebsite }}>{{ course.companyName.linkToCompanyWebsite }}</a></strong></h5></li>
+    </ul>
 
     <div class="row mb-4 mt-4"></div>
 

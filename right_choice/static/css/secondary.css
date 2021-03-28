@@ -43,6 +43,33 @@
 /*--------------------------------------------------------------
 # Search bar
 --------------------------------------------------------------*/
+.subjectTable {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    font-size: 1.5em;
+    min-width: 600px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+    .subjectTable thead tr {
+        background-color: #4B0082;
+        color: #ffffff;
+        text-align: center;
+    }
+.subjectTable th,
+.subjectTable td {
+    padding: 12px 15px;
+}
+.subjectTable tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.subjectTable tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+
+
 
 .form-control{
     border: none;

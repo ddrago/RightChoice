@@ -35,39 +35,50 @@ Universities Page
         </div>
 
 
+        <div class="py-5 title ">
+            <h1 style="font-size: 30px;" align="center"> Subject Shortcuts: </h1>
+        </div>
+
 
         <div class="container">
 
             <br />
-            <p align="center">STEM</p>
-            <table class="table table-hover">
+            <table class="subjectTable" align="center">
+                <thead>
+                    <tr><th>Humanities</th><th>STEM</th></tr>
+                </thead>
                 <tbody>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Biology' %}">Biology</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Chemestry' %}">Chemestry</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Physics' %}">Physics</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Computing Science' %}">Computing Science</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Engineering' %}">Engineering</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Mathematics' %}">Mathematics</a></td>
+                    <tr>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'English' %}">English</a></td>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Biology' %}">Biology</a></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'History' %}">History</a></td>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Physics' %}">Physics</a></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Psychology' %}">Psychology</a></td>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Chemestry' %}">Chemistry</a></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Theatre' %}">Theatre</a></td>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Computing Science' %}">Computing Science</a></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Philosophy' %}">Philosophy</a></td>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Engineering' %}">Engineering</a></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Politics' %}">Politics</a></td>
+                        <td align="center"><a href="{% url 'rango:uni_menu_search_results' 'Mathematics' %}">Mathematics</a></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
 
-        
 
-        <div class="container">
-
-            <br />
-            <p align="center">Humanities</p>
-            <table class="table table-hover">
-                <tbody>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'English' %}">English</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'History' %}">History</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Psychology' %}">Psychology</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Theatre' %}">Theatre</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Philosophy' %}">Philosophy</a></td>
-                <td><a href="{% url 'rango:uni_menu_search_results' 'Politics' %}">Politics</a></td>
-                </tbody>
-            </table>
+        <div class="py-5 title ">
+            <h1 style="font-size: 30px;" align="center"> Universities: </h1>
         </div>
 
         {% if universities_list %}
@@ -76,9 +87,9 @@ Universities Page
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mb-4">
             <div class="card member">
                 <!-- <img src="{{ MEDIA_URL }}{ pictures|getDictValue:universityImage }}" alt="{{ university.name }}" style="width:100%;height:100%">
-            href="% url 'rango:university' university.slug %}"
-            -->
-                <img src="{{ MEDIA_URL }}/uni_images/{{ university.universityImage }}" alt="{{ university.name }}" style="width:100%;height:100%">
+    href="% url 'rango:university' university.slug %}"
+    -->
+                <img src="/media/uni_images/{{ university.universityImage }}" alt="{{ university.name }}" style="width:300px;height:300px">
                 <a href="{% url 'rango:university' university.slug %}" class="btn btn-light btn-lg mb-1"> {{ university.name }}  </a>
                 {% if university.description %}
                 <p class="overflow-ellipsis pe-3 ps-3 pt-3"></p>
@@ -97,7 +108,7 @@ Universities Page
                 <p class="overflow-ellipsis pe-3 ps-3 pt-3">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
                 </p>
             </div>
